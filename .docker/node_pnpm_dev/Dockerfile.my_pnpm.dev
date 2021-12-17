@@ -1,4 +1,4 @@
-# N.B: Intended for docker's build context to be "here" where this file lies
+# N.B: Intended for docker's build context to be the project root
 FROM alpine:latest
 
 ENV NODE_VERSION 17.2.0
@@ -75,7 +75,8 @@ RUN addgroup -g 1000 node \
     && npm --version \
     && pnpm --version
 
-COPY docker-entrypoint.sh /usr/local/bin/
-ENTRYPOINT ["docker-entrypoint.sh"]
+USER node
 
+COPY /.docker/node_pnpm_dev/entrypoint.sh /usr/local/bin/
+ENTRYPOINT [ "entrypoint.sh" ]
 CMD [ "node" ]

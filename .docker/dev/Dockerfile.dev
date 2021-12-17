@@ -1,5 +1,5 @@
 # N.B: Intended for docker's build context to be the project root
-FROM my_pnpm_dev:latest
+FROM node_pnpm_dev:latest
 
 ARG APP_NAME=my_app
 
@@ -7,15 +7,15 @@ ARG APP_NAME=my_app
 WORKDIR /opt/${APP_NAME:-my_app}
 
 # Install(/update) pnpm + app dependencies
-COPY app/package.json .
-COPY app/pnpm-lock.yaml .
-COPY app/.npmrc .
-RUN npm install -g pnpm \
-    && pnpm --version\
-    && pnpm install
+# COPY app/package.json .
+# COPY app/pnpm-lock.yaml .
+# COPY app/.npmrc .
+# RUN npm install -g pnpm \
+#     && pnpm --version\
+#     && pnpm install
 
 # Copy app source
-COPY app/ .
+# COPY app/ .
 
 # Expose ports to outside of the container
 #   dev port
@@ -24,4 +24,6 @@ EXPOSE  3333
 #   cf. bugfix: https://github.com/vitejs/vite/issues/4116#issuecomment-983261927
 EXPOSE 3334
 
+COPY /.docker/dev/entrypoint.sh /usr/local/bin/
+ENTRYPOINT [ "entrypoint.sh" ]
 CMD [ "pnpm", "dev:local" ]
