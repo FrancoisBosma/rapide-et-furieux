@@ -1,0 +1,4 @@
+cd app/
+pnpm test:ci:components 
+pnpm test:ci:e2e
+cd ..

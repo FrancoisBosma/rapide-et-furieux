@@ -1,0 +1,8 @@
+.github/
+.husky/
+.vscode/
+dist/
+locales/
+node_modules/
+public/
+**/coverage/

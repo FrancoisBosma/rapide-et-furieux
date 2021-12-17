@@ -1,0 +1,10 @@
+.github/
+.husky/
+.vscode/
+**/*.md
+**/coverage/
+dist/
+locales/
+node_modules/
+src/generated_global_components.d.ts
+src/generated_auto-imports.d.ts
