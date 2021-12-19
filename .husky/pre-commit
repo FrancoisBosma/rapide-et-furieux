@@ -2,6 +2,6 @@
 . "$(dirname "$0")/_/husky.sh"
 . "$(dirname "$0")/common.sh"
 
+echo "[HUSKY] running \`pnpm run lint:types\`"
 cd app/
 pnpm lint:types
-cd ..

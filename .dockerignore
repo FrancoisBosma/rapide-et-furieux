@@ -1,8 +1,0 @@
-**/.git
-**/.github
-**/.husky
-**/.vscode
-
-**/node_modules
-**/README.md
-**/*.log

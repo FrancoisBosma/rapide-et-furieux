@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "build": "cross-env NODE_ENV=production vite-ssg build",
-    "dev": "echo [INFO] jsyk, you could also use \\`make\\`",
-    "dev:local": "vite --port 3333 --open",
+    "dev": "vite --port 3333 --open",
     "lint": "run-p lint:*",
     "lint:types": "vue-tsc --noEmit",
     "lint:css": "stylelint --fix \"**/*.{css,scss,vue}\"",
@@ -14,7 +13,7 @@
     "lint:md": "markdownlint-cli2 --config .markdownlint.json --fix \"src/(features/|global/components)/**/!(README).md\"",
     "lint:prettier": "prettier --write --loglevel error \"**/*.{js,ts,json,css,scss,vue,html,md}\"",
     "preinstall": "npx only-allow pnpm",
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXpostinstall": "husky install && chmod ug+x ../.husky/*",
+    "prepare": "cd .. && husky install && chmod ug+x .husky/*",
     "preview": "vite preview",
     "preview-https": "serve dist",
     "sec-audit": "run-p sec-audit:*",
