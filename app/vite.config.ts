@@ -45,7 +45,7 @@ export default defineConfig({
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({
       dts: 'src/generated_auto-imports.d.ts',
-      imports: ['vue', 'vue-router', 'vue-i18n', '@vueuse/head', '@vueuse/core'],
+      imports: ['@vueuse/core', '@vueuse/head', 'vitest', 'vue', 'vue-i18n', 'vue-router'],
     }),
 
     // https://github.com/antfu/unplugin-vue-components
@@ -160,5 +160,14 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['vue-demi'],
     include: ['vue', 'vue-router', '@vueuse/core', '@vueuse/head'],
+  },
+
+  // https://github.com/vitest-dev/vitest
+  test: {
+    include: ['tests/**/*.test.ts'],
+    environment: 'jsdom',
+    deps: {
+      inline: ['@vue', '@vueuse', 'vue-demi'],
+    },
   },
 })
