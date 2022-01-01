@@ -23,6 +23,9 @@
     "test:ci": "run-p test:ci:*",
     "test:ci:unit": "vitest",
     "test:ci:e2e": "cypress run --headless",
+    "test:docker": "docker run -it --rm -v $(pwd):/opt/my_app my_app_dev:latest $1" ,
+    "test:docker:unit": "pnpm test:docker \"pnpm test:local:unit\"" ,
+    "test:docker:e2e": "pnpm test:docker \"pnpm test:local:e2e\"" ,
     "test:local": "run-p test:local:*",
     "test:local:unit": "vitest",
     "test:local:e2e": "cypress open"
@@ -98,5 +101,8 @@
     "vite-ssg": "^0.17.2",
     "vitest": "^0.0.120",
     "vue-tsc": "^0.30.1"
+  },
+  "engines": {
+    "node": ">=14.8.1"
   }
 }

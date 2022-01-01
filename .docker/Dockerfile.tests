@@ -1,0 +1,25 @@
+FROM cypress/included:9.2.0
+
+ENV DEBUG=cypress:*
+ARG APP_NAME=my_app
+
+# Set work directory
+WORKDIR /opt/${APP_NAME:-my_app}
+
+# Install(/update) pnpm + app dependencies
+# COPY app/package.json .
+# COPY app/pnpm-lock.yaml .
+# COPY app/.npmrc .
+RUN npm install -g pnpm \
+    && pnpm --version
+    # && pnpm install
+ 
+# Expose ports to outside of the container
+#   dev port
+# EXPOSE  3333
+#   hot module reload (HMR) port
+#   cf. bugfix: https://github.com/vitejs/vite/issues/4116#issuecomment-983261927
+# EXPOSE 3334
+
+ENTRYPOINT [ "/bin/bash", "-c" ]
+CMD [ "pnpm test:local" ]
