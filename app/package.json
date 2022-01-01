@@ -24,8 +24,8 @@
     "test:ci:unit": "vitest",
     "test:ci:e2e": "cypress run --headless",
     "test:docker": "docker run -it --rm -v $(pwd):/opt/my_app my_app_dev:latest $1" ,
-    "test:docker:unit": "pnpm test:docker \"pnpm test:local:unit\"" ,
-    "test:docker:e2e": "pnpm test:docker \"pnpm test:local:e2e\"" ,
+    "test:docker:unit": "pnpm test:docker test:local:unit" ,
+    "test:docker:e2e": "pnpm test:docker test:local:e2e" ,
     "test:local": "run-p test:local:*",
     "test:local:unit": "vitest",
     "test:local:e2e": "cypress open"

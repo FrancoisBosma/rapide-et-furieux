@@ -1,19 +1,124 @@
-FROM cypress/included:9.2.0
+FROM node:16.5.0-buster
 
+USER root
+
+# a few environment variables to make NPM installs easier
+# good colors for most applications
+ENV TERM xterm
+# avoid million NPM install messages
+ENV npm_config_loglevel warn
+# allow installing when the main user is root
+ENV npm_config_unsafe_perm true
+# avoid too many progress messages
+# https://github.com/cypress-io/cypress/issues/1243
+ENV CI=1
+# disable shared memory X11 affecting Cypress v4 and Chrome
+# https://github.com/cypress-io/cypress-docker-images/issues/270
+ENV QT_X11_NO_MITSHM=1
+ENV _X11_NO_MITSHM=1
+ENV _MITSHM=0
+# point Cypress at the /root/cache no matter what user account is used
+# see https://on.cypress.io/caching
+ENV CYPRESS_CACHE_FOLDER=/root/.cache/Cypress
+# install Chrome browser
+ENV CHROME_VERSION 94.0.4606.71
+# "fake" dbus address to prevent errors
+# https://github.com/SeleniumHQ/docker-selenium/issues/87
+ENV DBUS_SESSION_BUS_ADDRESS=/dev/null
+# install Firefox browser
+ARG FIREFOX_VERSION=93.0
+
+# Custom
 ENV DEBUG=cypress:*
 ARG APP_NAME=my_app
 
 # Set work directory
 WORKDIR /opt/${APP_NAME:-my_app}
 
-# Install(/update) pnpm + app dependencies
-# COPY app/package.json .
-# COPY app/pnpm-lock.yaml .
-# COPY app/.npmrc .
-RUN npm install -g pnpm \
-    && pnpm --version
-    # && pnpm install
- 
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y \
+      libgtk2.0-0 \
+      libgtk-3-0 \
+      libnotify-dev \
+      libgconf-2-4 \
+      libgbm-dev \
+      libnss3 \
+      libxss1 \
+      libasound2 \
+      libxtst6 \
+      xauth \
+      xvfb \
+      # install text editors
+      vim-tiny \
+      nano \
+      # install emoji font
+      fonts-noto-color-emoji \
+      # install Chinese fonts
+      # this list was copied from https://github.com/jim3ma/docker-leanote
+      fonts-arphic-bkai00mp \
+      fonts-arphic-bsmi00lp \
+      fonts-arphic-gbsn00lp \
+      fonts-arphic-gkai00mp \
+      fonts-arphic-ukai \
+      fonts-arphic-uming \
+      ttf-wqy-zenhei \
+      ttf-wqy-microhei \
+      xfonts-wqy \
+    # clean up
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean \
+    # Node libraries
+    && node -p process.versions \
+    # Show where Node loads required modules from
+    && node -p 'module.paths' \
+    && apt-get update \
+    && apt-get install -y fonts-liberation libappindicator3-1 xdg-utils \
+    && wget -O /usr/src/google-chrome-stable_current_amd64.deb "http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}-1_amd64.deb" \
+    && dpkg -i /usr/src/google-chrome-stable_current_amd64.deb \
+    && apt-get install -f -y \
+    && rm -f /usr/src/google-chrome-stable_current_amd64.deb \
+    # Add zip utility - it comes in very handy
+    && apt-get update && apt-get install -y zip \
+    # add codecs needed for video playback in firefox
+    # https://github.com/cypress-io/cypress-docker-images/issues/150
+    && apt-get install mplayer -y \
+    && wget --no-verbose -O /tmp/firefox.tar.bz2 https://download-installer.cdn.mozilla.net/pub/firefox/releases/$FIREFOX_VERSION/linux-x86_64/en-US/firefox-$FIREFOX_VERSION.tar.bz2 \
+    && tar -C /opt -xjf /tmp/firefox.tar.bz2 \
+    && rm /tmp/firefox.tar.bz2 \
+    && ln -fs /opt/firefox/firefox /usr/bin/firefox \
+    && apt update && apt upgrade -y \
+    # should be root user
+    && npm config -g set user $(whoami) \
+    && npm install -g "cypress@9.2.0" \
+    && cypress verify \
+    # Cypress cache and installed version
+    # should be in the root user's home folder
+    && cypress cache path \
+    && cypress cache list \
+    && cypress info \
+    && cypress version \
+    # give every user read access to the "/root" folder where the binary is cached
+    # we really only need to worry about the top folder, fortunately
+    && chmod 755 /root \
+    # install pnpm
+    && npm install -g pnpm \
+    # Show where Node loads required modules from
+    && node -p 'module.paths' \
+    # should print Cypress version
+    # plus Electron and bundled Node versions
+    && cypress version \
+    && echo  " node version:    $(node -v) \n" \
+      "npm version:     $(npm -v) \n" \
+      "yarn version:    $(yarn -v) \n" \
+      "pnpm version:    $(pnpm -v) \n" \
+      "debian version:  $(cat /etc/debian_version) \n" \
+      "user:            $(whoami) \n" \
+      "chrome:          $(google-chrome --version || true) \n" \
+      "firefox:         $(firefox --version || true) \n"
+
+
+
+
 # Expose ports to outside of the container
 #   dev port
 # EXPOSE  3333
@@ -21,5 +126,5 @@ RUN npm install -g pnpm \
 #   cf. bugfix: https://github.com/vitejs/vite/issues/4116#issuecomment-983261927
 # EXPOSE 3334
 
-ENTRYPOINT [ "/bin/bash", "-c" ]
-CMD [ "pnpm test:local" ]
+ENTRYPOINT [ "pnpm" ]
+CMD [ "test:local" ]
