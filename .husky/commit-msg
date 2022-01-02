@@ -2,6 +2,7 @@
 . "$(dirname "$0")/_/husky.sh"
 . "$(dirname "$0")/common.sh"
 
+cd app/
 echo "[HUSKY] running commitlint"
-cd app
-pnpm commitlint --edit $1
+pnpm exec commitlint --edit $1
+pnpm lint:i18n

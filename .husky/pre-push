@@ -1,3 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+. "$(dirname "$0")/common.sh"
+
 cd app/
-echo "placeholder while waiting for vitest: pnpm test:ci:components "
-echo "placeholder while waiting for vitest: pnpm test:ci:e2e"
+echo "[HUSKY] pre-push placeholder"
