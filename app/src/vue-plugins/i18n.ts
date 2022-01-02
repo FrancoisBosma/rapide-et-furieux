@@ -1,4 +1,4 @@
-import { UserModule } from '@SRC/types'
+import type { UserModule } from '@SRC/types'
 import { createI18n } from 'vue-i18n'
 
 export const DEFAULT_LANGUAGE = 'en'
@@ -8,7 +8,8 @@ function getMessages() {
   const messages: any = {}
   // See: https://vitejs.dev/guide/features.html#glob-import
   const localeFiles = import.meta.globEager('../../locales/*.json')
-  localeFiles.array.forEach((path: string) => {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const path in localeFiles) {
     // E.g: ../../locales/de.json
     const pathParts = path.split('/')
     // E.g: de.json -> de
@@ -16,15 +17,16 @@ function getMessages() {
     if (locale === DEFAULT_LANGUAGE) {
       // For the default language the keys are the same as the value
       const defaultLangMessages: any = {}
-      localeFiles[path].default.array.forEach((key: string) => {
+      // eslint-disable-next-line no-restricted-syntax
+      for (const key in localeFiles[path].default) {
         defaultLangMessages[key] = key
-      })
+      }
       messages[locale] = defaultLangMessages
     } else {
       // E.g: "de" => { "Hello": "Hallo" }
       messages[locale] = localeFiles[path].default
     }
-  })
+  }
   return messages
 }
 

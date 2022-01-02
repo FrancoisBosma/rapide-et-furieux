@@ -1,4 +1,4 @@
-import { UserModule } from '@SRC/types'
+import type { UserModule } from '@SRC/types'
 
 // https://github.com/antfu/vite-plugin-pwa#automatic-reload-when-new-content-available
 export const install: UserModule = ({ isClient, router }) => {

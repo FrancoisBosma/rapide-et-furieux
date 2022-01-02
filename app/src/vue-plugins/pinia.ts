@@ -1,4 +1,4 @@
-import { UserModule } from '@SRC/types'
+import type { UserModule } from '@SRC/types'
 import { createPinia } from 'pinia'
 
 // Setup Pinia
