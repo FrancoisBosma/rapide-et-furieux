@@ -17,16 +17,16 @@
       <carbon-pedestrian class="inline-block" />
     </p>
     <p>
-      {{ t('intro.hi', { name: props.name }) }}
+      {{ t('HelloWorld_Hi, {name} !', { name: props.name }) }}
     </p>
 
     <p class="text-sm opacity-50">
-      <em>{{ t('intro.dynamic-route') }}</em>
+      <em>{{ t('HelloWorld_Dynamic route demo') }}</em>
     </p>
 
     <template v-if="user.otherNames.length">
       <div class="text-sm mt-4">
-        <span class="opacity-75">{{ t('intro.aka') }}:</span>
+        <span class="opacity-75">{{ t('HelloWorld_Also known as') }}:</span>
         <ul>
           <li v-for="otherName in user.otherNames" :key="otherName">
             <router-link :to="`/hi/${otherName}`" replace>
@@ -39,7 +39,7 @@
 
     <div>
       <button class="btn m-3 text-sm mt-6" @click="router.back()">
-        {{ t('button.back') }}
+        {{ t('HelloWorld_Back') }}
       </button>
     </div>
   </div>

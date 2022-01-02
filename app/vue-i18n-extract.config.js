@@ -15,17 +15,17 @@ module.exports = {
   remove: false,
   ci: false,
   /*
-  The separator is set to "_", because we are using the original language as the translations keys, 
-  therefore a code like $t("Hello. World!") would be translated into:
+  The separator is set to '_' instead of '.', because we are using the original language as the translations keys, 
+  therefore a code like $t("aaa. Bbb") would be translated into:
     {
-      "Hello": {
-        " World!": ""
+      "aaa": {
+        " Bbb": ""
       }
     }
 
     // Instead we want:
     {
-      "Hello. World!": ""
+      "aaa. Bbb": ""
     }
   */
   separator: '_',

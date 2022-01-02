@@ -1,1 +1,17 @@
-{}
+{
+  "HelloWorld": {
+    "Not found": "",
+    "Opinionated Vue3 + Vite Starter Template": "",
+    "What\\'s your name ?": "",
+    "What's your name ?": "",
+    "GO": "",
+    "Hi, {name} !": "",
+    "Dynamic route demo": "",
+    "Back": "",
+    "Home": "",
+    "Toggle dark mode": "",
+    "Change languages": "",
+    "Also known as": "",
+    "About": ""
+  }
+}

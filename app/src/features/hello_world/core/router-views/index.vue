@@ -28,7 +28,7 @@ meta:
       based)
     </p>
     <p>
-      <em class="text-sm opacity-75">{{ t('intro.desc') }}</em>
+      <em class="text-sm opacity-75">{{ t('HelloWorld_Opinionated Vue3 + Vite Starter Template') }}</em>
     </p>
 
     <div class="py-4" />
@@ -36,8 +36,8 @@ meta:
     <input
       id="input"
       v-model="name"
-      :placeholder="t('intro.whats-your-name')"
-      :aria-label="t('intro.whats-your-name')"
+      :placeholder="t('HelloWorld_What\'s your name ?')"
+      :aria-label="t('HelloWorld_What\'s your name ?')"
       type="text"
       autocomplete="false"
       p="x-4 y-2"
@@ -48,11 +48,11 @@ meta:
       outline="none active:none"
       @keydown.enter="go"
     />
-    <label class="hidden" for="input">{{ t('intro.whats-your-name') }}</label>
+    <label class="hidden" for="input">{{ t("HelloWorld_What's your name ?") }}</label>
 
     <div>
       <button class="m-3 text-sm btn" :disabled="!name" @click="go">
-        {{ t('button.go') }}
+        {{ t('HelloWorld_GO') }}
       </button>
     </div>
   </div>
