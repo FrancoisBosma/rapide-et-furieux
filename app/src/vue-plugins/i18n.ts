@@ -1,43 +1,39 @@
 import type { UserModule } from '@SRC/types'
 import { createI18n } from 'vue-i18n'
+// import type { PathValue } from '@intlify/core-base'
 
 export const DEFAULT_LANGUAGE = 'en'
 export const BROWSER_LANGUAGE = navigator?.language?.split('-')[0]
 
-function getMessages() {
-  const messages: any = {}
-  // See: https://vitejs.dev/guide/features.html#glob-import
-  const localeFiles = import.meta.globEager('../../locales/*.json')
+const messages = Object.fromEntries(
+  Object.entries(import.meta.globEager('../../locales/*.json')).map(([key, value]) => {
+    return [key.slice('../../locales/'.length, -5), value.default]
+  })
+)
+
+const messageResolver = (obj: any, path: string) => {
   // eslint-disable-next-line no-restricted-syntax
-  for (const path in localeFiles) {
-    // E.g: ../../locales/de.json
-    const pathParts = path.split('/')
-    // E.g: de.json -> de
-    const locale = pathParts[pathParts.length - 1].slice(0, -5)
-    if (locale === DEFAULT_LANGUAGE) {
-      // For the default language the keys are the same as the value
-      const defaultLangMessages: any = {}
-      // eslint-disable-next-line no-restricted-syntax
-      for (const key in localeFiles[path].default) {
-        defaultLangMessages[key] = key
-      }
-      messages[locale] = defaultLangMessages
-    } else {
-      // E.g: "de" => { "Hello": "Hallo" }
-      messages[locale] = localeFiles[path].default
-    }
+  debugger
+  console.log('RRRRRRRRRRRRRRR')
+  const pathParts: Array<string> = path.split('_')
+  let subLocale = obj
+  for (let index = 0; index < Object.keys(pathParts).length - 1; index++) {
+    subLocale = subLocale[pathParts[index]]
   }
-  return messages
+  console.log(subLocale[pathParts[pathParts.length - 1]])
+  return subLocale[pathParts[pathParts.length - 1]] ?? null
 }
 
-const messages = getMessages()
 export const install: UserModule = ({ app }) => {
   const i18n = createI18n({
+    fallbackFormat: true,
     fallbackLocale: DEFAULT_LANGUAGE,
     legacy: true, // Enables $t(), $tc(), etc in templates
-    locale: Object.keys(messages).includes(BROWSER_LANGUAGE) ? BROWSER_LANGUAGE : DEFAULT_LANGUAGE,
+    // legacy: false, // Enables $t(), $tc(), etc in templates
+    locale: 'fr', // Object.keys(messages).includes(BROWSER_LANGUAGE) ? BROWSER_LANGUAGE : DEFAULT_LANGUAGE,
+    messageResolver,
     messages,
   })
-
+  console.log(i18n) // DELETEME
   app.use(i18n)
 }

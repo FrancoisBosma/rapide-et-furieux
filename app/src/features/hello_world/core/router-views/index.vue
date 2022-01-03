@@ -24,8 +24,7 @@ meta:
       <carbon-campsite class="inline-block" />
     </p>
     <p>
-      Rapide et furieux (
-      <a rel="noreferrer" href="https://github.com/antfu/vitesse" target="_blank"> Vitesse </a>
+      Rapide et furieux (<a rel="noreferrer" href="https://github.com/antfu/vitesse" target="_blank">Vitesse</a>
       based)
     </p>
     <p>
@@ -53,7 +52,7 @@ meta:
 
     <div>
       <button class="m-3 text-sm btn" :disabled="!name" @click="go">
-        {{ t('HelloWorld_GO') }}
+        {{ t('HelloWorld.GO') }}
       </button>
     </div>
   </div>
