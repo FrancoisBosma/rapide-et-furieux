@@ -144,7 +144,7 @@ export default defineConfig({
 
   server: {
     hmr: {
-      port: 3334,
+      // port: 3334,
     },
     fs: {
       strict: true,
