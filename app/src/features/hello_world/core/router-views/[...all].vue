@@ -9,6 +9,6 @@ meta:
 
 <template>
   <div>
-    {{ t('HelloWorld_Not found') }}
+    {{ t('Not found') }}
   </div>
 </template>

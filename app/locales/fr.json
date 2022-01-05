@@ -1,17 +1,15 @@
 {
-  "HelloWorld": {
-    "Not found": "Page non trouvée",
-    "Opinionated Vue3 + Vite Starter Template": "Template d'appli Vue3 + Vite \"opinioné\"/dogmatique",
-    "What\\'s your name ?": "Comment t'appelles-tu ?",
-    "What's your name ?": "Comment t'appelles-tu ?",
-    "Hi, {name} !": "Salut, {name}!",
-    "Dynamic route demo": "Démo de route dynamique",
-    "Back": "Retour",
-    "Home": "Accueil",
-    "Toggle dark mode": "Activer/désactiver le mode sombre",
-    "Change languages": "Changer de langue",
-    "About": "À propos",
-    "Also known as": "Aussi connu sous le nom de"
-  },
-  "HelloWorld.GO": ""
+  "Not found": "Page non trouvée",
+  "Opinionated Vue3 + Vite Starter Template": "Template d'appli Vue3 + Vite \"opinioné\"/dogmatique",
+  "What\\'s your name ?": "Comment t'appelles-tu ?",
+  "What's your name ?": "Comment t'appelles-tu ?",
+  "Hi, {name} !": "Salut, {name}!",
+  "Dynamic route demo": "Démo de route dynamique",
+  "Back": "Retour",
+  "Home": "Accueil",
+  "Toggle dark mode": "Activer/désactiver le mode sombre",
+  "Change languages": "Changer de langue",
+  "About": "À propos",
+  "Also known as": "Aussi connu sous le nom de",
+  "GO": "Essayer"
 }

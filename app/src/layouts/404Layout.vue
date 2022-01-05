@@ -13,7 +13,7 @@
     <router-view />
     <div>
       <button class="btn m-3 text-sm mt-8" @click="router.back()">
-        {{ t('HelloWorld_Back') }}
+        {{ t('Back') }}
       </button>
     </div>
   </main>

@@ -1,17 +1,15 @@
 {
-  "HelloWorld": {
-    "Not found": "",
-    "Opinionated Vue3 + Vite Starter Template": "",
-    "What\\'s your name ?": "",
-    "What's your name ?": "",
-    "Hi, {name} !": "",
-    "Dynamic route demo": "",
-    "Back": "",
-    "Home": "",
-    "Toggle dark mode": "",
-    "Change languages": "",
-    "Also known as": "",
-    "About": ""
-  },
-  "HelloWorld.GO": ""
+  "Not found": "",
+  "Opinionated Vue3 + Vite Starter Template": "",
+  "What\\'s your name ?": "",
+  "What's your name ?": "",
+  "Hi, {name} !": "",
+  "Dynamic route demo": "",
+  "Also known as": "",
+  "Back": "",
+  "Home": "",
+  "Toggle dark mode": "",
+  "Change languages": "",
+  "About": "",
+  "GO": ""
 }
