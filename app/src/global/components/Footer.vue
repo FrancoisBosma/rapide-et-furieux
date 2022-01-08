@@ -10,7 +10,7 @@
 </script>
 
 <template>
-  <footer class="bg-gray-700 dark:bg-gray-200 py-4 text-gray-100 dark:text-gray-700">
+  <footer class="bg-gray-700 py-4 text-gray-100 dark:(bg-gray-200 text-gray-700)">
     <nav class="text-xl">
       <router-link class="icon-btn mx-2" to="/" :title="t('Home')">
         <carbon-campsite />

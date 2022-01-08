@@ -5,7 +5,9 @@ import typography from 'windicss/plugin/typography'
 export default defineConfig({
   darkMode: 'class',
   // https://windicss.org/posts/v30.html#attributify-mode
-  attributify: true,
+  attributify: {
+    prefix: 'w:',
+  },
 
   plugins: [typography()],
   theme: {
