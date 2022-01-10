@@ -1,4 +1,4 @@
 import type { ViteSSGContext } from 'vite-ssg'
 
 export type UserModule = (ctx: ViteSSGContext) => void
-export type Dictionary = { [index: string]: any }
+export type Dictionary<T> = { [index: string]: T }
