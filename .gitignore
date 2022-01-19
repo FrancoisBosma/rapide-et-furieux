@@ -19,6 +19,7 @@
 # Builds
 **/.vite-ssg-dist
 **/.vite-ssg-temp
+app/src/generated_global_components.d.ts
 **/dist
 **/dist-ssr
 **/node_modules
