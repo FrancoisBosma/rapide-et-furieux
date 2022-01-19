@@ -8,7 +8,7 @@
     "lint": "run-s lint:*",
     "lint:css": "stylelint --fix \"**/*.{css,scss,vue}\"",
     "lint:i18n": "pnpm exec vue-i18n-extract && pnpm exec vue-i18n-extract --remove",
-    "lint:imports": "import-sort --write \"src/**/*{.js,.ts,.vue}\"",
+    "lint:imports": "import-sort --write \"src/**/*{.js,.ts}\"",
     "lint:js": "eslint --fix --ext \"**/*.{js,ts,vue}\"",
     "lint:md": "markdownlint-cli2 --config .markdownlint.json --fix \"src/(features/|global/components)/**/!(README).md\"",
     "lint:prettier": "prettier --write --loglevel error \"**/*.{js,ts,json,css,scss,vue,html,md}\"",

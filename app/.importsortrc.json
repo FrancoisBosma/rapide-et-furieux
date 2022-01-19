@@ -4,7 +4,7 @@
     "style": "eslint",
     "options": {}
   },
-  ".ts, .tsx, .vue": {
+  ".ts, .tsx": {
     "parser": "typescript",
     "style": "eslint",
     "options": {}
