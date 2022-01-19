@@ -22,7 +22,7 @@ module.exports = {
     'at-rule-no-unknown': null,
     'selector-max-universal': 1,
     'string-no-newline': null,
-    'scss/at-rule-no-unknown': true,
+    'scss/at-rule-no-unknown': null,
     'scss/dollar-variable-colon-space-after': 'always',
     'scss/dollar-variable-colon-space-before': 'never',
     'scss/dollar-variable-no-missing-interpolation': true,
