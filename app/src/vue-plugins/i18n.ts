@@ -1,8 +1,7 @@
 import type { UserModule } from '@SRC/types'
 import { createI18n } from 'vue-i18n'
 
-export const DEFAULT_LANGUAGE = 'en'
-export const BROWSER_LANGUAGE = navigator?.language?.split('-')[0]
+const DEFAULT_LANGUAGE = 'fr'
 
 const messages = Object.fromEntries(
   Object.entries(import.meta.globEager('../../locales/*.json')).map(([filePath, fileContent]) => {
@@ -13,11 +12,12 @@ const messages = Object.fromEntries(
   })
 )
 
-export const install: UserModule = ({ app }) => {
+export const install: UserModule = ({ app, isClient }) => {
+  const browserLanguage = isClient ? navigator?.language?.split('-')[0] : DEFAULT_LANGUAGE
   const i18n = createI18n({
     fallbackLocale: DEFAULT_LANGUAGE,
     legacy: true, // Enables $t(), $tc(), etc in templates
-    locale: Object.keys(messages).includes(BROWSER_LANGUAGE) ? BROWSER_LANGUAGE : DEFAULT_LANGUAGE,
+    locale: Object.keys(messages).includes(browserLanguage) ? browserLanguage : DEFAULT_LANGUAGE,
     messages,
   })
   app.use(i18n)
