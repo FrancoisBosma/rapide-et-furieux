@@ -17,4 +17,5 @@ export const install: UserModule = ({ app, isClient, router }) => {
   })
 
   app.use(auth)
+  // app.provide('enable-route-transitions', true)
 }
