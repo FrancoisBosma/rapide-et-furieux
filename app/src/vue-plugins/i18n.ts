@@ -1,7 +1,7 @@
 import type { UserModule } from '@SRC/types'
 import { createI18n } from 'vue-i18n'
 
-const DEFAULT_LANGUAGE = 'fr'
+const DEFAULT_LANGUAGE = 'en'
 
 const messages = Object.fromEntries(
   Object.entries(import.meta.globEager('../../locales/*.json')).map(([filePath, fileContent]) => {
