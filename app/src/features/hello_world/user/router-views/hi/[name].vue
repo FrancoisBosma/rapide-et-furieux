@@ -1,3 +1,8 @@
+<route lang="yaml">
+meta:
+  public: true
+</route>
+
 <script setup lang="ts">
   import { useUserStore } from '@FEATURES/hello_world/user/stores/user'
 
