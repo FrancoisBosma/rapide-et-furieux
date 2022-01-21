@@ -1,5 +1,6 @@
 <route lang="yaml">
 meta:
+  public: true # cf. auth/navigationGuards.ts
   layout: 404Layout
 </route>
 

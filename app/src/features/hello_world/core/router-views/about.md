@@ -1,3 +1,7 @@
+<route lang="yaml">
+meta:
+  public: true
+</route>
 ---
 title: About
 ---
