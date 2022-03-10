@@ -54,19 +54,11 @@ Rapide-et-furieux (Fast and furious) is an opinionated [Vue3](https://v3.vuejs.o
 ## Variations
 
 For an up-to-date list of official and community contributions to the `vitesse ecosystem`, head over the official repository's [variations section](https://github.com/antfu/vitesse#variations).
-<<<<<<< HEAD
-You may also want to check out the `vite ecosystem` [community templates](https://github.com/vitejs/awesome-vite#templates)
-
-## Usage
-
-In order to use this template, proceed as follow:
-=======
 You may also want to check out the `vite ecosystem` [community templates](https://github.com/vitejs/awesome-vite#templates).
 
 ## Usage
 
 In order to use this template, proceed as follows:
->>>>>>> develop
 - [ ] Change the author name in `LICENSE`
 - [ ] Change the title in `App.vue`
 - [ ] Change the hostname in `vite.config.ts`
