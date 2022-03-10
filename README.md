@@ -49,3 +49,21 @@ Rapide-et-furieux (Fast and furious) is an opinionated [Vue3](https://v3.vuejs.o
 - [👤 Authentication System](https://github.com/helixsoftco/vuelix/blob/main/README.md#-authentication-system)
 
 - [🌐 Internationalization: vue-i18n and vue-i18n-extract](https://github.com/helixsoftco/vuelix/blob/main/README.md#-internationalization-vue-i18n-and-vue-i18n-extract)
+
+
+## Variations
+
+For an up-to-date list of official and community contributions to the `vitesse ecosystem`, head over the official repository's [variations section](https://github.com/antfu/vitesse#variations)
+
+## Usage
+
+In order to use this template, proceed as follow:
+- [ ] Change the author name in `LICENSE`
+- [ ] Change the title in `App.vue`
+- [ ] Change the hostname in `vite.config.ts`
+- [ ] Change the favicon in `public`
+- [ ] Remove the `.github` folder which contains the funding info
+- [ ] Clean up the READMEs and remove routes
+- [ ] Replace the `hello_world` module with whatever suits your needs
+
+Then enjoy :D
