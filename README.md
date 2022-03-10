@@ -53,7 +53,8 @@ Rapide-et-furieux (Fast and furious) is an opinionated [Vue3](https://v3.vuejs.o
 
 ## Variations
 
-For an up-to-date list of official and community contributions to the `vitesse ecosystem`, head over the official repository's [variations section](https://github.com/antfu/vitesse#variations)
+For an up-to-date list of official and community contributions to the `vitesse ecosystem`, head over the official repository's [variations section](https://github.com/antfu/vitesse#variations).
+You may also want to check out the `vite ecosystem` [community templates](https://github.com/vitejs/awesome-vite#templates)
 
 ## Usage
 
