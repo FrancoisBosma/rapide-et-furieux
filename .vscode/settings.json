@@ -12,6 +12,7 @@
     "noopener",
     "nprogress",
     "pinia",
+    "postcss",
     "pnpm",
     "preinstall",
     "reactified",
