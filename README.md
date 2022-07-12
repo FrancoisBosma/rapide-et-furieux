@@ -15,7 +15,7 @@ Rapide-et-furieux (Fast and furious) is an opinionated [Vue3](https://v3.vuejs.o
 
 - 📲 [PWA](https://github.com/antfu/vite-plugin-pwa)
 
-- 🎨 [UnoCSS](https://github.com/antfu/unocss) - the instant on-demand atomic CSS engine
+- 🎨 [WindiCss](https://windicss.org/) - the next generation utility-first CSS framework
 
 - 😃 [Use icons from any icon sets with classes](https://github.com/antfu/unocss/tree/main/packages/preset-icons)
 
