@@ -17,6 +17,7 @@ module.exports = {
   },
   root: true,
   rules: {
+    'antfu/if-newline': 'off',
     '@typescript-eslint/indent': 'off',
     '@typescript-eslint/no-explicit-any': rulesSeverityOff,
     '@typescript-eslint/no-namespace': ['error', { allowDeclarations: true }],
